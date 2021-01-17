@@ -1,3 +1,10 @@
+# File name: readuntil0.py
+# Author: Tiia Iire
+# Description: reads users number until it's 0
+# Counts the number of negative ints
+# Counts the number of even ints
+# Counts the number of positive ints that are divisible by three 
+
 def evennums(num):
     if num % 2 == 0:
         return "is even"

@@ -1,3 +1,8 @@
+# File name: rockpaperscissorsgame.py
+# Author: Tiia Iire
+# Description: player plays against computer (computer takes the random item)
+# Also the code tells the score after every game
+
 import random
 def rps():
     playerwins = 0
