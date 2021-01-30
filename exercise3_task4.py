@@ -22,11 +22,11 @@ class Coin:
     def coincurrency(self):
         if random.randint(0, 4) == 0:
             self.currency = "Euro"
-        if random.randint(0, 4) == 1:
+        elif random.randint(0, 4) == 1:
             self.currency = "Pound"
-        if random.randint(0, 4) == 2:
+        elif random.randint(0, 4) == 2:
             self.currency = "Dollar"
-        if random.randint(0, 4) == 3:
+        elif random.randint(0, 4) == 3:
             self.currency = "Ruble"
         else:
             self.currency = "Yen"
