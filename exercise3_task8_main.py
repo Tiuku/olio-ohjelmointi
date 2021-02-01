@@ -1,3 +1,7 @@
+# File name: exercise3_task8_main.py
+# Author: Tiia Iire
+# Description: Main file for getting phone model, manufacturer and retailprice
+
 import exercise3_task8
 
 def main():

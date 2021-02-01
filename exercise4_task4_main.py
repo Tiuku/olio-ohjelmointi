@@ -1,4 +1,4 @@
-# File name: exercise4_task3_main.py
+# File name: exercise4_task4_main.py
 # Author: Tiia Iire
 # Description: Main file for getting phone model, manufacturer, retailprice and ID
 
@@ -11,7 +11,7 @@ def main():
     my_phone.set_Model()
     my_phone.set_RetailPrice()
     my_phone.set_ID()
-    my_phone.correct_ID()
+    my_phone.correct_id()
     my_phone.get_ID()
 
     print(my_phone)
