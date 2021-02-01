@@ -7,12 +7,10 @@ import exercise4_task3_Class
 def main():
     my_phone = exercise4_task3_Class.CellPhone()
 
-    my_phone.Manufact()
-    my_phone.Model()
-    my_phone.RetailPrice()
+    my_phone.set_Manufact()
+    my_phone.set_Model()
+    my_phone.set_RetailPrice()
 
-    print("Manufacturer: ", my_phone.get_manufact())
-    print("Model Number: ", my_phone.get_model())
-    print("Retail price: ", my_phone.get_retailPrice())
+    print(my_phone)
 
 main()
