@@ -1,6 +1,6 @@
-# File name: exercise4_task3_Class.py
+# File name: exercise4_task4_Class.py
 # Author: Tiia Iire
-# Description: Class where we get phones manufacturer, model and price
+# Description: Class where we get phones manufacturer, model, price and ID (between 1-6)
 
 import random
 
@@ -33,17 +33,17 @@ class CellPhone:
         return self.price
 
     def get_ID(self):
-        if CellPhone.correct_ID(input) == True:
-            return self.ID
+        while not(CellPhone.correct_id(self.ID)):
+            self.ID = int(input("ID you chose is not available, choose again (1-6): "))
         else:
-            self.ID = int(input("ID you setted is not correct, try again(1-6): "))
-        return self.ID
-
-    def correct_ID(input):
-        if (input == 1 or input == 2 or input == 3 or input == 4 or input == 5 or input == 5):
+            return self.ID
+        
+        
+    def correct_id(input):
+        if input == 1 or input == 2 or input == 3 or input == 4 or input == 5 or input == 6:
             return True
         else:
             return False
-
+            
     def __str__(self):
         return f"""Manufacturer: {self.manufacturer} Model: {self.model} Retail price: {self.price} Phone ID: {self.ID}"""
