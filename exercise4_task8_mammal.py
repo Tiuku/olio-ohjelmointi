@@ -58,6 +58,5 @@ class Mammal:
             return False
 
     def __str__(self):
-        return " your mammals ID: " + format(self.ID) + " your mammals specie: " + format(self.specie) + " your mammals name: " + format(self.name)
-        + " your mammals size: " + format(self.size) + " Your mammals weight: " + format(self.weight) + " your mammals height: " + format(self.height)
+        return "Your mammals specie: " + format(self.specie)
         
