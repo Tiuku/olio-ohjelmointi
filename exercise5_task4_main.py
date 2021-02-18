@@ -1,114 +1,82 @@
 # File name: exercise5_task4_main.py
 # Author: Tiia Iire
-# Description:
+# Description: dice game, three rolls and best sum wins
 
 import exercise5_task4_DiceClass as dice
 
-def roll_dice(my_dice):
-    my_dice.roll_dice()
-    return my_dice
+def first_round(list):
+    for i in list:
+        print("Player ", i.get_id(), " got ", i.get_side())
+    for step in range(1, len(list)):
+        key = list[step]
+        j = step - 1
 
-def make_list():
-    dice_list = []
+        while j >= 0 and key.get_side() > list[j].get_side():
+            list[j + 1] = list[j]
+            j = j - 1
 
-    for number in range(1, 4):
-        print("Dice ", number)
+        list[j + 1] = key
 
-        my_dice = dice.Dice(dice_id, number)
+    n = 1
+    biggest = [list[0]]
 
-        dice_list.append(my_dice)
+    for item in list:
+        while n < len(list):
+            if item.get_side() == list[n].get_side():
+                biggest.append(list[n])
+            n += 1
 
-    return list
 
-def display_list(dice_list):
-    for item in dice_list:
-        print()
-        print("Id: ", item.get_id())
-        print("Side: ", item.get_side())
+def winner(list):
+    for i in list:
+        print("Player ", i.get_id(), " got ", i.get_side())
 
-def roll_dice(dice_list):
-    for item in dice_list:
-        item.roll_dice()
+    for step in range(1, len(list)):
+        key = list[step]
+        j = step - 1
 
-def get_list(dice_list):
-    side_list = []
+        while j >= 0 and key.get_sum() > list[j].get_sum():
+            list[j + 1] = list[j]
+            j = j - 1
 
-    for item in dice_list:
-        side_list.append(item.get_side())
-    return side_list
+        list[j + 1] = key
 
-def not_append(continue_list, dice_object):
-    for i in range(len(continue_list)):
-        if dice_object == continue_list[i]:
-            return False
+    n = 1
+    biggest = [list[0]]
+    for item in list:
+        while n < len(list):
+            if item.get_sum() == list[n].get_sum():
+                biggest.append(list[n])
+            n += 1
 
-    return True
-
-def check_tie(dice_list):
-    if (len(dice_list) < 2):
-        return dice_list
-
+    if len(biggest) == 1:
+        print("Player ", biggest[0].get_id() , " wins!")
+        return
     else:
-        tied_list = []
-        side_list = get_side_list(dice_list)
+        print("There was a tie between ", len(biggest), " players, we have to roll again!")
+        for i in biggest:
+            i.roll_dice()
+        return first_round(biggest)
 
-        for i in range(len(side_list)):
-            if side_list[i] == side_list[j]:
-                if not_appended(tied_list, dice_list[j]):
-                    tied_list.append(dice_list[i])
 
-                if not_appended(tied_list, dice_list[j]):
-                    tied_list.append(dice_list[j])
-
-    return tied_list
-
-def drop_lowest(dice_list):
-    side_list = get_side_list(dice_list)
-    lowest = min(side_list)
-
-    for i in range(len(side_list)):
-        if lowest == side_list[i]:
-            dice_list.pop(i)
-
-    return dice_list
-
-def play_game(dices):
-    print("Lets play!")
-    roll_dice(dices)
-
-    print("Situation after first round: ")
-    display_list(dices)
-    tied_list = check_tie(dices)
-
-    while (len(tied_list) > 1):
-        print("There is a tie!, we have to roll again.. ", get_side_list(tied_list))
-        roll_dice(tied_list)
-        tied_list = check_tie(dices)
-
-    print("Now we can drop the lowest side out of the game.")
-    dices = drop_lowest(dices)
-
-    print("These are still in game: ")
-    display_list(dices)
-
-    return dices
 
 def main():
+    players = []
     my_dice = dice.Dice()
-    my_rolled_dice = roll_dice(my_dice)
+    my_dice.set_players()
+    print("Let's play!")
 
-    dices = make_list()
 
-    print("Here are the dices ")
-    display_list(dices)
+    for r in range(my_dice.get_players()):
+        my_dice = dice.Dice()
+        my_dice.set_id()
+        players.append(my_dice)
+        for item in range(3):
+            for item in players:
+                item.roll_dice()
+                item.get_sum()
+                
 
-    print("First round..")
-    dices = play_game(dices)
-
-    print("Second round..")
-    dices = play_game(dices)
-
-    print("We have a winner!")
-    dices = play_game(dices)
+    winner(players)
 
 main()
