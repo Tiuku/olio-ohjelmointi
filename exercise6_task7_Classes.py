@@ -2,8 +2,11 @@
 # Author: Tiia Iire
 # Description: Inherits Student and teacher with course
 
-class Course():
+import exercise6_task3_AnimalClass as animal
+
+class Course(animal.Wildanimal):
     def __init__(self):
+        animal.Wildanimal.__init__(self)
         self.__coursename = "python"
         self.__courseID = 0
 
@@ -69,6 +72,7 @@ class Student(Teacher):
         return self.__studentnumber
 
     def __str__(self):
-        return format(Teacher.__str__(self)) + "\n Students name: " + format(self.__fname) + format(self.__lname) + "\n Studentnumber: " + format(self.__studentnumber)
+        return format(Teacher.__str__(self)) + "\n Students name: " + format(self.__fname) + format(self.__lname)
+            + "\n Studentnumber: " + format(self.__studentnumber)
 
     

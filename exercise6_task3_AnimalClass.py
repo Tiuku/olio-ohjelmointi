@@ -23,7 +23,7 @@ class Animal(mammal.Mammal):
         return self.__diet
 
     def __str__(self):
-        return "Animal is: " + format(mammal.Mammal.__str__(self)) + " The animal does this sound: " + format(self.__noise) +
+        return "Animal is: " + format(mammal.Mammal.__str__(self)) + "\n The animal does this sound: " + format(self.__noise) +
         " and eats: " + format(self.__diet)
 
 class Wildanimal(Animal):
@@ -38,4 +38,4 @@ class Wildanimal(Animal):
         return self.__territory
 
     def __str__(self):
-        return format(Animal.__str__(self)) + " This animal lives in: " + format(self.__territory)
+        return format(Animal.__str__(self)) + "\n This animal lives in: " + format(self.__territory)
