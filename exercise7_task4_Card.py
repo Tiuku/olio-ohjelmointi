@@ -1,6 +1,6 @@
 # File name: Exercise7_task4_Card.py
 # Author: Tiia Iire
-# Description:
+# Description: Class of making and showing a card
 
 class Card:
 
@@ -14,6 +14,7 @@ class Card:
         
     def get_value(self):
         return self.__value
+
 
     def __str__(self):
         return "Card is " + format(self.__value) + " of " + format(self.__suit)

@@ -1,3 +1,7 @@
+# File name: exercise7_task4_Deck.py
+# Author: Tiia Iire
+# Description: Class for making Deck of cards 
+
 import exercise7_task4_Card as card
 import random
 
