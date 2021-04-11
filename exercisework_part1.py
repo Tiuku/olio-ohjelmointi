@@ -48,8 +48,10 @@ class User(Owner):
         return "Hello " + format(Owner.__str__(self))
 
 # Next the Pet class to ask for the pets information
-class Pet():
+# Also inheriting User class and as User class inherits Owner class, we get that also
+class Pet(User):
     def __init__(self, specie, race, age, name):
+        User.__init__(self, "tiiaiire", "kau") # inheriting the init function from User class
         self.specie = specie
         self.race = race
         self.age = age
@@ -80,5 +82,6 @@ class Pet():
         return self.age
 
     def __str__(self):
-        return "Your pet's specie is: " + format(self.specie) + " and it is: " + format(self.race) + " Your " + format(self.specie) + " is " + format(self.age) + " years old and is called " + format(self.name)
+        return format(User.__str__(self)) + " Your pet's specie is: " + format(self.specie) + " and it is: " + format(self.race) +
+    " Your " + format(self.specie) + " is " + format(self.age) + " years old and is called " + format(self.name)
     
