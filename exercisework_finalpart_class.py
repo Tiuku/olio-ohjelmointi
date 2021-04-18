@@ -1,4 +1,4 @@
-# File name: exercisework_part2.py
+# File name: exercisework_finalpart_class.py
 # Author: Tiia Iire
 # Description: classes for vets appointment informations
 
